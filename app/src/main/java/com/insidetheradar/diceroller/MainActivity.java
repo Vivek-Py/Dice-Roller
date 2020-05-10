@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,16 +19,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button rollButton = findViewById(R.id.roll_button);
-        rollButton.setOnClickListener(rolldice());
+        Button rollButton = (Button) findViewById(R.id.roll_button);
+        rollButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), getString(R.string.ToastMessage), Toast.LENGTH_SHORT).show();
+                rolldice();
+            }
+        });
 
     }
 
-    private View.OnClickListener rolldice() {
+    private void rolldice() {
         TextView randomNumber = findViewById(R.id.random_number);
-        int randomInt = new Random().nextInt(6) + 1;
-        randomNumber.setText(randomInt);
-        return null;
+        final int num = new Random().nextInt(6) + 1;
+        String number = String.valueOf(num);
+        randomNumber.setText(number);
     }
-
-}
+}    
