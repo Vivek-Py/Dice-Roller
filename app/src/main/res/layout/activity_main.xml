@@ -11,18 +11,20 @@
         android:id="@+id/roll_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="197dp"
         android:text="@string/roll"
         android:textSize="20dp" />
 
-    <TextView
+    <ImageView
         android:id="@+id/random_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/roll_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:textSize="25dp"/>
-
+        android:src="@drawable/dice_1"
+        />
 
 </RelativeLayout>
